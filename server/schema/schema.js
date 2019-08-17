@@ -60,6 +60,10 @@ const AuthorType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
+    books: {
+      type: new GraphQLList(BookType),
+      resolve: () => books
+    },
     book: {
       type: BookType,
       args: {
@@ -71,6 +75,10 @@ const RootQuery = new GraphQLObjectType({
         console.log(book);
         return book;
       }
+    },
+    authors: {
+      type: new GraphQLList(AuthorType),
+      resolve: () => authors
     },
     author: {
       type: AuthorType,
