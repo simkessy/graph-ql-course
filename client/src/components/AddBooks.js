@@ -13,7 +13,8 @@ const getAuthorsQuery = gql`
 
 class AddBooks extends Component {
   displayAuthors() {
-    const data = this.props.data;
+    const { data } = this.props;
+
     if (data.loading) return <option disabled>Loading Authors...</option>;
 
     return data.authors.map(author => (
