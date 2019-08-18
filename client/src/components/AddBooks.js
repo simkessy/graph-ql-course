@@ -57,7 +57,7 @@ class AddBooks extends Component {
           <label>Genre:</label>
           <input
             type="text"
-            onChange={e => this.setState({ gender: e.target.value })}
+            onChange={e => this.setState({ genre: e.target.value })}
           />
         </div>
         <div className="field">
@@ -75,6 +75,7 @@ class AddBooks extends Component {
 }
 
 // Wrap component around query
+// Note:  By wrapping the component in this, you're adding the queries to the this.props of the component to access the queries / mutations
 export default compose(
   graphql(getAuthorsQuery, { name: "getAuthorsQuery" }),
   graphql(addBookMutation, { name: "addBookMutation" })
